@@ -1,0 +1,10 @@
+.NavBar {
+    width: 100%;
+    background-color: transparent !important;
+    border: none  !important;
+    box-shadow: none  !important;
+    height: 70px;
+}
+.Filter {
+    width: 360px ;
+} 
