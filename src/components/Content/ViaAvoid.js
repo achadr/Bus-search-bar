@@ -15,7 +15,7 @@ class ViaAvoid extends Component {
             options: [
                 {value:'',label:'Select...'},
                 {value:'via',label:'Via'},
-                {value:'avoid',label:'Avoid'},
+                {value:'avoid',label:'Eviter'},
             ],
             suggestions: [],
 
@@ -62,8 +62,8 @@ class ViaAvoid extends Component {
       }
   render() {
     return (
-       <Grid container direction='row'>
-           <Grid item xs={12} > <Button color="primary" onClick={this.handleViaAvoidDisplay}>Via/Avoid</Button></Grid>
+       <Grid container direction='row' alignItems='center'>
+           <Grid item xs={12} > <Button color="primary" className='ViaAvoidButton' onClick={this.handleViaAvoidDisplay}>Via / Eviter</Button></Grid>
            <Grid item xs={6}>
            {this.state.enable && <Select value= {this.state.value} options={this.state.options} handleChange={this.handleChangeSelect} />}
            </Grid>

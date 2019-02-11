@@ -87,7 +87,7 @@ class Filter extends Component {
   
   }
   handleGetTimeAndTickets = () => {
-      console.log('state search', this.state)
+     this.props.handleSearch(this.state)
   }
   isError () {
       return this.state.errorFrom || this.state.errorTo
@@ -96,29 +96,29 @@ class Filter extends Component {
     return (
     <Paper className='Filter'>
         <Grid container direction='column'>
-            <Grid item>
+            <Grid item xs={11}>
                 <AutoComplete
                     suggestions ={this.state.suggestions}
                     value={ this.state.from }
-                    placeholder='From'
+                    placeholder='De'
                     handleChange={this.handleChangeDestinations('from')}
                 />
             </Grid>
-            <Grid item>
+            <Grid item xs={11}>
                 <AutoComplete
                     suggestions ={this.state.suggestions}
                     value={ this.state.to }
-                    placeholder='To'
+                    placeholder='A'
                     handleChange={this.handleChangeDestinations('to')}
                 />
             </Grid>
-            <Grid item>
+            <Grid item xs={11}>
                <ViaAvoid handleChange={ this.handleViaAvoidChange } viaAvoid={this.state.viaAvoid} />
             </Grid>
-            <Grid item>
+            <Grid item xs={11}>
                 <Grid container direction='row'>
                     <Grid item xs={4}>
-                        <span style={{ fontSize: '12px' }}>One way</span>
+                        <span style={{ fontSize: '12px' }}>Aller simple</span>
                         <Radio
                             checked={this.state.travelType === 'oneWay'}
                             onChange={this.handleChangeTravelType}
@@ -128,7 +128,7 @@ class Filter extends Component {
                             />
                     </Grid>
                     <Grid  item xs={4}>
-                        <span style={{ fontSize: '12px' }}>Return</span>
+                        <span style={{ fontSize: '12px' }}>Retour</span>
                         <Radio
                         checked={this.state.travelType === 'return'}
                         onChange={this.handleChangeTravelType}
@@ -138,7 +138,7 @@ class Filter extends Component {
                         />
                     </Grid>
                     <Grid item xs={4}>
-                        <span style={{ fontSize: '12px' }}>Open Return</span>
+                        <span style={{ fontSize: '12px' }}>Retour ouvert</span>
                         <Radio
                         checked={this.state.travelType === 'openReturn'}
                         onChange={this.handleChangeTravelType}
@@ -149,21 +149,20 @@ class Filter extends Component {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item>
-                <DateTimePicker value={this.state.departureDate} onChange={this.handleDepartureDateChange} label='OUT' />
+            <Grid item xs={11}>
+                <DateTimePicker value={this.state.departureDate} onChange={this.handleDepartureDateChange} label='Date de départ' />
             </Grid>
             { this.state.travelType === 'return' &&
-                <Grid item>
-                    <DateTimePicker value={this.state.returnDate} onChange={this.handleReturnDateChange} label='RETURN' />
+                <Grid item xs={11}>
+                    <DateTimePicker value={this.state.returnDate} onChange={this.handleReturnDateChange} label='Date de retour' />
                 </Grid>
             }
-           { this.isError() && <Grid item>
+           { this.isError() && <Grid item xs={11}>
                     {this.isError()}
             </Grid>}
-            <Grid item>
-                <Button variant="contained" color="primary" onClick={this.handleGetTimeAndTickets}> Get times & tickets  </Button>
+            <Grid item xs={12} className='SearchButton'>
+                <Button  variant="contained" color="primary" onClick={this.handleGetTimeAndTickets}> Get times & tickets  </Button>
             </Grid>
-             
         </Grid>
     </Paper>
     )}
