@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 class App extends Component {
   render() {
     return (
-     <Grid container direction='row' alignItems='center'  style={{  width: "100%", height: "400px", backgroundImage: `url(${ background })` }} className='App'>
+     <Grid container direction='row' alignItems='center'  style={{  width: "100vw", height: "400px", backgroundImage: `url(${ background })` }} className='App'>
        <NavBar />
         <Content />
         <Footer />
